@@ -11,9 +11,9 @@ namespace HW3
         private string? Address;
         private string? PhoneNumber;
 
-        private List<int> Zaliky = new List<int>();
-        private List<int> Kursovi = new List<int>();
-        private List<int> Ispyty = new List<int>();
+        private int[] Zaliky;
+        private int[] Kursovi;
+        private int[] Ispyty;
 
         public Student() : this(null, null, null, null, null, null) { }
 
@@ -90,34 +90,34 @@ namespace HW3
         {
             this.PhoneNumber = PhoneNumber;
         }
-        public List<int> GetZaliky()
+        public int[] GetZaliky()
         {
-            return new List<int>(Zaliky);
+            return Zaliky;
         }
 
-        public List<int> GetKursovi()
+        public int[] GetKursovi()
         {
-            return new List<int>(Kursovi);
+            return Kursovi;
         }
 
-        public List<int> GetIspyty()
+        public int[] GetIspyty()
         {
-            return new List<int>(Ispyty);
+            return Ispyty;
         }
 
-        public void AddToZaliky(int mark)
+        public void SetZaliky(int[] Zaliky)
         {
-            this.Zaliky.Add(mark);
+            this.Zaliky = Zaliky;
         }
 
-        public void AddToKursovi(int mark)
+        public void SetKursovi(int[] Kursovi)
         {
-            this.Kursovi.Add(mark);
+            this.Kursovi = Kursovi;
         }
 
-        public void AddToIspyty(int mark)
+        public void SetIspyty(int[] Ispyty)
         {
-            this.Ispyty.Add(mark);
+            this.Ispyty = Ispyty;
         }
 
         public void ShowInfo()
@@ -129,9 +129,9 @@ namespace HW3
             Console.WriteLine("Birthday: " + Birthday);
             Console.WriteLine("Adress: " + Address);
             Console.WriteLine("Phone num: " + PhoneNumber);
-            Console.WriteLine("Zaliky: " + string.Join(", ", Zaliky));
-            Console.WriteLine("Kursovy: " + string.Join(", ", Kursovi));
-            Console.WriteLine("Ispyty: " + string.Join(", ", Ispyty));
+            Console.WriteLine("Zaliky: " + string.Join(" ", Zaliky));
+            Console.WriteLine("Kursovy: " + string.Join(" ", Kursovi));
+            Console.WriteLine("Ispyty: " + string.Join(" ", Ispyty));
         }
     }
 
@@ -141,15 +141,11 @@ namespace HW3
         {
             Student st1 = new Student("Antonenko", "Anton", "Leonidovych", "01.01.2000", "No Street str., NoCity", "+000123456789");
 
-            st1.AddToZaliky(90);
-            st1.AddToZaliky(85);
-            st1.AddToKursovi(88);
-            st1.AddToKursovi(92);
-            st1.AddToIspyty(95);
+            st1.SetZaliky(new int[] { 2, 9, 8, 6, 12 });
+            st1.SetKursovi(new int[] { 3, 5, 4 });
+            st1.SetIspyty(new int[] { 12, 10, 7, 6 });
 
             st1.ShowInfo();
-
-            Console.ReadLine();
         }
     }
 }
