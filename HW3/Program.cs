@@ -1,5 +1,3 @@
-﻿using System.Net;
-
 namespace HW3
 {
     class Student
@@ -148,4 +146,5 @@ namespace HW3
             st1.ShowInfo();
         }
     }
+
 }
